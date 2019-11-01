@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beetroot Lesson 22 23 Homework</title>
+    <meta name="author" content="Artofnext">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="converter">
+        <h1 class="title">Currency Converter</h1>
+        <p class="bank__ref">
+            <a
+                href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html">
+                By European Central Bank rates
+            </a>
+        </p>
+
+        <p id="base__curr">EUR</p>
+        <p id="date">01-01-2019</p>
+
+        <div class="converter__container">
+            <input id="amount" type="number" placeholder="Amount in EUR">
+            <input id="currency" list="current" placeholder="Select" required>
+            <datalist id="current">
+            </datalist>
+            <button type="button" onclick="convert()">Convert!</button>
+            <p class="result" id="result"></p>
+            <button type="button" onclick="showHide()" class="rates__button" id="rates__button">
+                Show Rates
+            </button>
+        </div>
+        <ul id="myList">
+        </ul>
+    </div>
+
+    <script src="js/convert.js"></script>
+</body>
+
+</html>

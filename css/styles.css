@@ -1,0 +1,93 @@
+body {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-size: 4em; */
+    font-weight: bold;
+    color: rgb(88, 78, 0);
+}
+
+.title {
+    margin: 50px 0 20px 0;
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.bank__ref {
+    font-size: 2em;
+}
+
+button {
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    background-color: darkcyan;
+    border: none;
+    border-radius: 5px;
+    color: white;
+
+    font-size: 1.5em;
+
+    margin: 20px;
+}
+
+button:hover {
+    box-shadow: 0 0 5px darkcyan;
+}
+
+button:active {
+    box-shadow: 0 0 5px lightcyan;
+}
+
+input, .result {
+    height: 50px;
+    width: 200px;
+    margin: 10px;
+    text-align: right;
+    font-size: 1.5em;
+    background-color: white;
+    border: 1px solid rgb(88, 78, 0);
+    border-radius: 5px;
+    /* border-radius: 10%; */
+}
+
+.result {
+    line-height: 2;
+    background-color: rgb(245, 245, 245);
+    padding: 0 10px;
+}
+
+
+.converter {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid rgb(88, 78, 0);
+    border-radius: 5px;
+    background-color: wheat;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.bank__ref a {
+    color: rgb(88, 78, 0);
+}
+
+.converter__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#date, #base__curr {
+    display: inline;
+}
+
+#myList {
+    display: none;
+    list-style: none;
+}
+
+.rates__button {
+    background-color: honeydew;
+    color: rgb(88, 78, 0);
+}
