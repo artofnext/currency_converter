@@ -90,9 +90,10 @@ function showHide() {
 
     if (rateFrom == 0 || rateTo == 0) {
         alert('Something goes wrong! Try to reload page. If it didn’t help, I am sorry!')
-    }
+    } else {
 
     let result = amount / rateFrom * rateTo;
 
     document.getElementById("result").innerHTML = result.toFixed(2);
+    }
 }
