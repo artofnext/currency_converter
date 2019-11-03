@@ -8,6 +8,10 @@ xmlhttp.onreadystatechange = function() {
     document.getElementById("base__curr").innerHTML = `Base Currency: ${ratesObj.base} `;
     document.getElementById("date").innerHTML = `Date: ${ratesObj.date}`;
 
+    ratesObj.rates.EUR = 1;
+
+    console.log(ratesObj);
+
     Object.keys(ratesObj.rates).forEach(function(key) {
 
         // Create list of curency rates
@@ -17,17 +21,46 @@ xmlhttp.onreadystatechange = function() {
         document.getElementById("myList").appendChild(node);
 
         // Create options of curency rates
-        var select = document.getElementById("current");
-        var option = document.createElement("option"); 
-        option.text = key;
-        option.value = key;
-        select.appendChild(option);
+        createOptions("current", key);
+        createOptions("new", key);
+
     });
   }
 };
 
 xmlhttp.open("GET", "https://api.exchangeratesapi.io/latest", true);
 xmlhttp.send();
+
+function createOptions(elemId, val) {
+
+  var select = document.getElementById(elemId);
+  var option = document.createElement("option"); 
+  option.text = val;
+  option.value = val;
+  select.appendChild(option);
+}
+
+function getRate(currency) {
+
+  //console.log('Currency to search: ' + currency);
+
+  let rate = 0;
+
+  Object.keys(ratesObj.rates).forEach(function (key) {
+
+    //console.log('Search: ' + key);
+
+    if (currency == key) {
+
+      //console.log('Found: ' + Number(ratesObj.rates[key]));
+
+      rate = Number(ratesObj.rates[key]);
+    }
+
+  });
+
+  return rate;
+}
 
 function showHide() {
     var x = document.getElementById("myList");
@@ -44,20 +77,22 @@ function showHide() {
 
   function convert() {
     let amount = document.getElementById("amount").value;
-    let currency = document.getElementById("currency").value;
-    let rate = 0;
+    let currencyFrom = document.getElementById("currencyfrom").value;
+    let currencyTo = document.getElementById("currencyto").value;
 
-    Object.keys(ratesObj.rates).forEach(function(key) {
-        if (currency == key) {
-            rate = Number(ratesObj.rates[key]);
-        }
-    });
+    console.log('CurrencyFrom: ' + currencyFrom);
+    console.log('CurrencyTo: ' + currencyTo);
+    
+    let rateFrom = getRate(currencyFrom);
+    let rateTo = getRate(currencyTo);
 
-    if (rate == 0) {
+    console.log('Rate: ' + rateFrom);
+
+    if (rateFrom == 0 || rateTo == 0) {
         alert('Something goes wrong! Try to reload page. If it didn’t help, I am sorry!')
     }
 
-    let result = amount * rate;
+    let result = amount / rateFrom * rateTo;
 
     document.getElementById("result").innerHTML = result.toFixed(2);
 }
