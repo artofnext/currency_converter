@@ -21,8 +21,8 @@ xmlhttp.onreadystatechange = function() {
         document.getElementById("myList").appendChild(node);
 
         // Create options of curency rates
-        createOptions("current", key);
-        createOptions("new", key);
+        createOptions("currencyfrom", key);
+        createOptions("currencyto", key);
 
     });
   }
@@ -62,18 +62,28 @@ function getRate(currency) {
   return rate;
 }
 
-function showHide() {
-    let x = document.getElementById("myList");
-    let button = document.getElementById("rates__button");
+function revert() {
+  let store = document.getElementById("currencyto").value;
+  document.getElementById("currencyto").value = document.getElementById("currencyfrom").value;
+  document.getElementById("currencyfrom").value = store;
 
-    if (x.style.display === "block") {
-      x.style.display = "none";
-      button.textContent = "Show Rates"
-    } else {
-      x.style.display = "block";
-      button.textContent = "Hide Rates"
-    }
+  store = document.getElementById("currencyto").text;
+  document.getElementById("currencyto").text = document.getElementById("currencyfrom").text;
+  document.getElementById("currencyfrom").text = store;
+}
+
+function showHide() {
+  let x = document.getElementById("myList");
+  let button = document.getElementById("rates__button");
+
+  if (x.style.display === "block") {
+    x.style.display = "none";
+    button.textContent = "Show Rates"
+  } else {
+    x.style.display = "block";
+    button.textContent = "Hide Rates"
   }
+}
 
 function convert() {
   let amount = document.getElementById("amount").value;

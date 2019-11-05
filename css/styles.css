@@ -22,7 +22,7 @@ button {
     text-align: center;
     background-color: darkcyan;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     color: white;
 
     font-size: 1.5em;
@@ -38,7 +38,7 @@ button:active {
     box-shadow: 0 0 5px lightcyan;
 }
 
-input, .result {
+input, .result, select {
     height: 50px;
     width: 100px;
     margin: 10px;
@@ -46,12 +46,27 @@ input, .result {
     font-size: 1.5em;
     background-color: white;
     border: 1px solid rgb(88, 78, 0);
-    border-radius: 5px;
+    border-radius: 25px;
     /* border-radius: 10%; */
 }
 
 #amount, #result {
     width: 200px;
+}
+
+#button_revert {
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#revert_icon {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    fill: white;
 }
 
 .result {
@@ -94,4 +109,8 @@ input, .result {
 .rates__button {
     background-color: honeydew;
     color: rgb(88, 78, 0);
+}
+
+#currencyfrom, #amount, #currencyto {
+    padding: 0 10px;
 }
