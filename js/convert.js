@@ -1,5 +1,5 @@
-var xmlhttp = new XMLHttpRequest();
-var ratesObj;
+let xmlhttp = new XMLHttpRequest();
+let ratesObj;
 
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
@@ -15,8 +15,8 @@ xmlhttp.onreadystatechange = function() {
     Object.keys(ratesObj.rates).forEach(function(key) {
 
         // Create list of curency rates
-        var node = document.createElement("LI");  
-        var textnode = document.createTextNode(`Currency: ${key} Rate: ${ratesObj.rates[key]}`);
+        let node = document.createElement("LI");  
+        let textnode = document.createTextNode(`Currency: ${key} Rate: ${ratesObj.rates[key]}`);
         node.appendChild(textnode);
         document.getElementById("myList").appendChild(node);
 
@@ -33,8 +33,8 @@ xmlhttp.send();
 
 function createOptions(elemId, val) {
 
-  var select = document.getElementById(elemId);
-  var option = document.createElement("option"); 
+  let select = document.getElementById(elemId);
+  let option = document.createElement("option"); 
   option.text = val;
   option.value = val;
   select.appendChild(option);
@@ -63,37 +63,37 @@ function getRate(currency) {
 }
 
 function showHide() {
-    var x = document.getElementById("myList");
-    var button = document.getElementById("rates__button");
+    let x = document.getElementById("myList");
+    let button = document.getElementById("rates__button");
 
     if (x.style.display === "block") {
       x.style.display = "none";
       button.textContent = "Show Rates"
     } else {
-        x.style.display = "block";
-        button.textContent = "Hide Rates"
+      x.style.display = "block";
+      button.textContent = "Hide Rates"
     }
   }
 
-  function convert() {
-    let amount = document.getElementById("amount").value;
-    let currencyFrom = document.getElementById("currencyfrom").value;
-    let currencyTo = document.getElementById("currencyto").value;
+function convert() {
+  let amount = document.getElementById("amount").value;
+  let currencyFrom = document.getElementById("currencyfrom").value;
+  let currencyTo = document.getElementById("currencyto").value;
 
-    console.log('CurrencyFrom: ' + currencyFrom);
-    console.log('CurrencyTo: ' + currencyTo);
-    
-    let rateFrom = getRate(currencyFrom);
-    let rateTo = getRate(currencyTo);
+  console.log('CurrencyFrom: ' + currencyFrom);
+  console.log('CurrencyTo: ' + currencyTo);
 
-    console.log('Rate: ' + rateFrom);
+  let rateFrom = getRate(currencyFrom);
+  let rateTo = getRate(currencyTo);
 
-    if (rateFrom == 0 || rateTo == 0) {
-        alert('Something goes wrong! Try to reload page. If it didn’t help, I am sorry!')
-    } else {
+  console.log('Rate: ' + rateFrom);
+
+  if (rateFrom == 0 || rateTo == 0) {
+    alert('Something goes wrong! Try to reload page. If it didn’t help, I am sorry!')
+  } else {
 
     let result = amount / rateFrom * rateTo;
 
     document.getElementById("result").innerHTML = result.toFixed(2);
-    }
+  }
 }

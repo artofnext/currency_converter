@@ -40,7 +40,7 @@ button:active {
 
 input, .result {
     height: 50px;
-    width: 200px;
+    width: 100px;
     margin: 10px;
     text-align: right;
     font-size: 1.5em;
@@ -48,6 +48,10 @@ input, .result {
     border: 1px solid rgb(88, 78, 0);
     border-radius: 5px;
     /* border-radius: 10%; */
+}
+
+#amount, #result {
+    width: 200px;
 }
 
 .result {

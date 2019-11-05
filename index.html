@@ -21,14 +21,25 @@
             </a>
         </p>
 
-        <p id="base__curr">EUR</p>
-        <p id="date">01-01-2019</p>
+        <p id="base__curr"></p>
+        <p id="date"></p>
 
         <div class="converter__container">
             <input id="amount" type="number" placeholder="Amount">
             <input id="currencyfrom" list="current" placeholder="From" required>
             <datalist id="current">
             </datalist>
+
+            <select name="plan" id="plan">
+                <option value="none" selected disabled hidden> 
+                    Select an Option 
+                </option> 
+                  <option value="free">Free</option> 
+                  <option value="starter">Starter </option> 
+                  <option value="professional">Professional</option> 
+                  <option value="corporate">Corporate</option> 
+            </select>
+
             <input id="currencyto" list="new" placeholder="To" required>
             <datalist id="new">
             </datalist>
