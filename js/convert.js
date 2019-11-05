@@ -2,7 +2,7 @@ let xmlhttp = new XMLHttpRequest();
 let ratesObj;
 
 xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
+  if (this.readyState == 4 && this.status == 200 /*&& false*/) {
     ratesObj = JSON.parse(this.responseText);
 
     document.getElementById("base__curr").innerHTML = `Base Currency: ${ratesObj.base} `;
@@ -25,6 +25,24 @@ xmlhttp.onreadystatechange = function() {
         createOptions("currencyto", key);
 
     });
+
+    document.getElementById("amount").disabled = false;
+    document.getElementById("currencyfrom").disabled = false;
+    document.getElementById("currencyto").disabled = false;
+    document.getElementById("convert").disabled = false;
+
+    console.log("Enable block");
+
+  } else {
+
+    console.log("Disable block");
+
+    document.getElementById("base__curr").innerHTML = `Sorry!`;
+    document.getElementById("date").innerHTML = `It seems that there isn't connection!`;
+    document.getElementById("amount").disabled = true;
+    document.getElementById("currencyfrom").disabled = true;
+    document.getElementById("currencyto").disabled = true;
+    document.getElementById("convert").disabled = true;
   }
 };
 
@@ -70,6 +88,13 @@ function revert() {
   store = document.getElementById("currencyto").text;
   document.getElementById("currencyto").text = document.getElementById("currencyfrom").text;
   document.getElementById("currencyfrom").text = store;
+
+  console.log("Revert block");
+
+  // document.getElementById('button_revert').style.transition = 'all 0.1s easy';
+  // document.getElementById('button_revert').style.transform = 'rotate(-360deg)';
+  // document.getElementById('button_revert').style.transform = 'rotate(0deg)';
+  // document.getElementById('button_revert').style.display='none';
 }
 
 function showHide() {

@@ -38,6 +38,10 @@ button:active {
     box-shadow: 0 0 5px lightcyan;
 }
 
+button:disabled {
+    box-shadow: none;
+}
+
 input, .result, select {
     height: 50px;
     width: 100px;
@@ -45,7 +49,7 @@ input, .result, select {
     text-align: right;
     font-size: 1.5em;
     background-color: white;
-    border: 1px solid rgb(88, 78, 0);
+    border: 1px solid darkcyan;
     border-radius: 25px;
     /* border-radius: 10%; */
 }
@@ -60,7 +64,13 @@ input, .result, select {
     border-radius: 50%;
     margin-left: 0;
     margin-right: 0;
+    /* transition: rotate 0.3 ease-in; */
+    transition: all 1s ease-in;
 }
+
+/* #button_revert:hover {
+    transform: rotate(360deg);
+} */
 
 #revert_icon {
     width: 30px;
@@ -79,7 +89,7 @@ input, .result, select {
 .converter {
     text-align: center;
     padding: 30px;
-    border: 1px solid rgb(88, 78, 0);
+    border: 1px solid darkcyan;
     border-radius: 5px;
     background-color: white;
     max-width: 1100px;
@@ -95,6 +105,7 @@ input, .result, select {
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    margin-top: 50px;
 }
 
 #date, #base__curr {
@@ -107,10 +118,17 @@ input, .result, select {
 }
 
 .rates__button {
-    background-color: honeydew;
+    background-color: white;
+    border: 1px solid darkcyan;
     color: rgb(88, 78, 0);
 }
 
 #currencyfrom, #amount, #currencyto {
     padding: 0 10px;
 }
+
+*:disabled {
+    background-color: rgb(231, 231, 231);
+    color: gray;
+}
+
