@@ -1,9 +1,11 @@
+*:focus {
+    outline: none;
+}
+
 body {
-    
     font-family: Arial, Helvetica, sans-serif;
-    /* font-size: 4em; */
     font-weight: bold;
-    color: rgb(88, 78, 0);
+    color: black;
 }
 
 .title {
@@ -22,11 +24,9 @@ button {
     text-align: center;
     background-color: darkcyan;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     color: white;
-
     font-size: 1.5em;
-
     margin: 20px;
 }
 
@@ -38,16 +38,39 @@ button:active {
     box-shadow: 0 0 5px lightcyan;
 }
 
-input, .result {
+button:disabled {
+    box-shadow: none;
+}
+
+input, .result, select {
     height: 50px;
-    width: 200px;
+    width: 100px;
     margin: 10px;
     text-align: right;
     font-size: 1.5em;
     background-color: white;
-    border: 1px solid rgb(88, 78, 0);
-    border-radius: 5px;
-    /* border-radius: 10%; */
+    border: 1px solid darkcyan;
+    border-radius: 25px;
+}
+
+#amount, #result {
+    width: 200px;
+}
+
+#button_revert {
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#revert_icon {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    fill: white;
+    transform: rotate(0deg);
 }
 
 .result {
@@ -56,11 +79,10 @@ input, .result {
     padding: 0 10px;
 }
 
-
 .converter {
     text-align: center;
     padding: 30px;
-    border: 1px solid rgb(88, 78, 0);
+    border: 1px solid darkcyan;
     border-radius: 5px;
     background-color: white;
     max-width: 1100px;
@@ -68,13 +90,20 @@ input, .result {
 }
 
 .bank__ref a {
-    color: rgb(88, 78, 0);
+    color: black;
 }
 
 .converter__container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.converter__selectors {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -88,6 +117,22 @@ input, .result {
 }
 
 .rates__button {
-    background-color: honeydew;
-    color: rgb(88, 78, 0);
+    background-color: white;
+    border: 1px solid darkcyan;
+    color: darkcyan;
 }
+
+#currencyfrom, #amount, #currencyto {
+    padding: 0 10px;
+}
+
+select:default {
+    color: gray;
+
+}
+
+*:disabled {
+    background-color: rgb(231, 231, 231);
+    color: gray;
+}
+
