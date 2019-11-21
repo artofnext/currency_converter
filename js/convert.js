@@ -2,7 +2,7 @@ let xmlhttp = new XMLHttpRequest();
 let ratesObj;
 
 xmlhttp.onreadystatechange = function() {
-  let alert = document.getElementById("base__curr");
+  
   if (this.readyState == 4 && this.status == 200) {
     ratesObj = JSON.parse(this.responseText);
 
@@ -27,6 +27,7 @@ xmlhttp.onreadystatechange = function() {
 
     });
 
+    // console.log("Enable block");
     document.getElementById("amount").disabled = false;
     document.getElementById("currencyfrom").disabled = false;
     document.getElementById("currencyto").disabled = false;
@@ -35,23 +36,22 @@ xmlhttp.onreadystatechange = function() {
     document.getElementById("button_revert").disabled = false;
     alert.style.color = 'initial';
 
-    // console.log("Enable block");
 
-  } else {
-
-    // console.log("Disable block");
-
-    alert.innerHTML = `Sorry!`;
-    alert.style.color = 'red';
-    document.getElementById("date").innerHTML = `It seems that there isn't connection!<br>Try refresh the page.`;
-    document.getElementById("amount").disabled = true;
-    document.getElementById("currencyfrom").disabled = true;
-    document.getElementById("currencyto").disabled = true;
-    document.getElementById("convert").disabled = true;
-    document.getElementById("rates__button").disabled = true;
-    document.getElementById("button_revert").disabled = true;
   }
 };
+
+//Block disabled by first
+let alert = document.getElementById("base__curr");
+alert.innerHTML = `Sorry!`;
+alert.style.color = 'red';
+document.getElementById("date").innerHTML = `It seems that there isn't connection!<br>Try refresh the page.`;
+document.getElementById("amount").disabled = true;
+document.getElementById("currencyfrom").disabled = true;
+document.getElementById("currencyto").disabled = true;
+document.getElementById("convert").disabled = true;
+document.getElementById("rates__button").disabled = true;
+document.getElementById("button_revert").disabled = true;
+
 
 xmlhttp.open("GET", "https://api.exchangeratesapi.io/latest", true);
 xmlhttp.send();
